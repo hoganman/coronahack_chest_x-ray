@@ -26,7 +26,7 @@ def find_images_without_metadata(dataset_type: str):
 
     # Directly check the two lists against each other
     if image_names_with_metadata_dataset == files_in_dataset_path:
-        print('Both lists match!')
+        print('Both lists match for the %s dataset' % dataset_type)
         return []
     missing_file_count = abs(len(image_names_with_metadata_dataset)
                              - len(files_in_dataset_path))
