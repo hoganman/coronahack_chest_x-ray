@@ -24,6 +24,7 @@ def find_images_without_metadata(dataset_type: str):
     file_path = os.path.join(os.getcwd(), 'dataset', dataset_type)
     files_in_dataset_path = sorted(list(os.listdir(file_path)))
 
+    # Directly check the two lists against each other
     if image_names_with_metadata_dataset == files_in_dataset_path:
         print('Both lists match!')
         return []
