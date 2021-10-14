@@ -4,27 +4,6 @@ from collections import UserDict
 from typing import Dict
 
 
-class ImagingDirection(UserDict):
-    """Distinguish the two image directions in the data"""
-
-    # Cross-section along the spine
-    Longitudinal = 0
-    # Perpendicular (facing) the patient's chest
-    Transverse = 1
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.data: Dict[str, int] = {
-            'Longitudinal': self.Longitudinal,
-            'Transverse': self.Transverse
-        }
-        # The inverse mapping
-        self.idata: Dict[int, str] = {
-            self.Longitudinal: 'Longitudinal',
-            self.Transverse: 'Transverse'
-        }
-
-
 class Label(UserDict):
 
     Key = 'Label'
@@ -102,8 +81,3 @@ class Label2(object):
             self.Bacteria_Streptococcus: 'Streptococcus'
         }
 
-
-# class SuperLabel(object):
-#
-#     Normal = (0, 0, 0)
-#     Pnemonia_Unkown_ARDS =
