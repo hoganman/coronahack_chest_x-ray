@@ -22,6 +22,8 @@ def find_images_without_metadata(dataset_type: str):
 
     # Get the actual image files
     file_path = os.path.join(os.getcwd(), 'dataset', dataset_type)
+    if not os.path.isdir(file_path):
+        raise OSError('Unable to find path:' + file_path)
     files_in_dataset_path = sorted(list(os.listdir(file_path)))
 
     # Directly check the two lists against each other
