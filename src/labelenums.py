@@ -56,27 +56,36 @@ class Label1(UserDict):
         return label.lower() == 'normal' or len(label) == 0
 
 
-class Label2(object):
+class Label2(UserDict):
 
     Key = 'Label_2_Virus_category'
     Label = 'Category #2'
     Normal = 0
-    ARDS = 1
-    Virus_Unknown = 2
-    Virus_COVID19 = 3
-    Virus_SARS = 4
-    Bacteria_Streptococcus = 5
-    Bacteria_Unknown = 6
+    ARDS = 10
+    Streptococcus = 25
+    COVID19 = 50
+    SARS = 60
+    Unknown = 1000
 
-    def __init__(self):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.data: Dict[str, int] = {
+            'Normal': self.Normal,
+            'ARDS': self.ARDS,
+            'Unknown': self.Unknown,
+            'COVID-19': self.COVID19,
+            'SARS': self.SARS,
+            'Streptococcus': self.Streptococcus
+        }
 
         self.labels: Dict[int, str] = {
             self.Normal: 'Normal',
             self.ARDS: 'ARDS',
-            self.Virus_Unknown: 'Virus (Unknown)',
-            self.Virus_COVID19: 'COVID-19',
-            self.Virus_SARS: 'SARS',
-            self.Bacteria_Unknown: 'Bacteria (Unknown)',
-            self.Bacteria_Streptococcus: 'Streptococcus'
+            self.Unknown: 'Unknown',
+            self.COVID19: 'COVID-19',
+            self.SARS: 'SARS',
+            self.Streptococcus: 'Streptococcus'
         }
+
 
